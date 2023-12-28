@@ -1,8 +1,8 @@
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import make_scorer, accuracy_score, confusion_matrix
 from sklearn.svm import SVC
-from utils.dataset_utils import discretize_dataset
-from utils.classification_utils import *
+from dataset_utils import discretize_dataset
+from classification_utils import *
 
 
 def svm_classification(x_train, y_train, x_test, y_test):

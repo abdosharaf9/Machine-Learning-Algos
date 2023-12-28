@@ -2,7 +2,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.metrics import make_scorer, r2_score, mean_squared_error, mean_absolute_error
 from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
-from utils.dataset_utils import split_data
+from dataset_utils import split_data
 
 
 def svm_regression(x_train, y_train, x_test, y_test):
