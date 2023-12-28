@@ -20,9 +20,11 @@ def svm_regression(x_train, y_train, x_test, y_test):
 
 def cross_val_svm_regression(x_train, y_train, numberOfIterations = 10):
     svm = SVR()
-    cv_r2_scores = cross_val_score(svm, x_train, y_train, cv = numberOfIterations, scoring=make_scorer(r2_score))
-    cv_mse_scores = cross_val_score(svm, x_train, y_train, cv = numberOfIterations, scoring=make_scorer(mean_squared_error))
-    cv_mae_scores = cross_val_score(svm, x_train, y_train, cv = numberOfIterations, scoring=make_scorer(mean_absolute_error))
+    scaler = StandardScaler()
+    x_train_scaled = scaler.fit_transform(x_train)
+    cv_r2_scores = cross_val_score(svm, x_train_scaled, y_train, cv = numberOfIterations, scoring=make_scorer(r2_score))
+    cv_mse_scores = cross_val_score(svm, x_train_scaled, y_train, cv = numberOfIterations, scoring=make_scorer(mean_squared_error))
+    cv_mae_scores = cross_val_score(svm, x_train_scaled, y_train, cv = numberOfIterations, scoring=make_scorer(mean_absolute_error))
     return cv_r2_scores, cv_mse_scores, cv_mae_scores
 
 
