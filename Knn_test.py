@@ -71,7 +71,7 @@ def calculate_multiclass_metrics(confusion_matrix):
     return sensitivity, specificity, precision, recall, positive_rate, false_positive_rate
 
 
-x_train_original, y_train_original, x_test_original, y_test_original = split_data(data_set_path = "Battery_RUL.csv", train_percent = 0.8)
+x_train_original, y_train_original, x_test_original, y_test_original = split_data(dataset_path = "Battery_RUL.csv", train_percent = 0.8)
 
 _,knn_regression_r2 = knn_regression(k=3, x_train = x_train_original, y_train = y_train_original, x_test = x_test_original, y_test = y_test_original)
 print("K-NN Regression Algorithm R^2 = ",knn_regression_r2)
@@ -81,7 +81,7 @@ knn_regression_r2_with_cv = knn_classification_with_cv(k = 3, x_train = x_train_
 print("K-NN Regression Algorithm After 10-Flod CV = ",knn_regression_r2_with_cv)
 print("=====================================================================")
 
-x_train_discretized, y_train_discretized, x_test_discretized, y_test_discretized = discretize_dataset(data_set_path = "Battery_RUL.csv", train_percent = 0.8)
+x_train_discretized, y_train_discretized, x_test_discretized, y_test_discretized = discretize_dataset(dataset_path = "Battery_RUL.csv", train_percent = 0.8)
 
 _,knn_classification_r2=knn_classification(k=3,x_train=x_train_discretized,y_train=y_train_discretized,x_test=x_test_discretized,y_test=y_test_discretized)
 print("K-NN Classification Algorithm R^2 = ",knn_classification_r2)
