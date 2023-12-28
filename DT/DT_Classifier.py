@@ -2,8 +2,8 @@
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import make_scorer, accuracy_score, confusion_matrix
 from sklearn.tree import DecisionTreeClassifier
-from dataset_utils import discretize_dataset
-from classification_utils import *
+from utils.dataset_utils import discretize_dataset
+from utils.classification_utils import *
 
 
 def dt_classification(x_train, y_train, x_test, y_test):

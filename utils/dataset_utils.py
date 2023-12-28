@@ -2,11 +2,6 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import KBinsDiscretizer
 
-# 15064 rows
-# data = pd.read_csv("Battery_RUL.csv")
-# rows = data.shape[0]
-# print(round(0.8 * rows))
-
 
 def split_data(dataset_path, train_percent):
     data = pd.read_csv(dataset_path)

@@ -1,14 +1,17 @@
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import make_scorer, r2_score, mean_squared_error, mean_absolute_error
 from sklearn.svm import SVR
-from dataset_utils import split_data
+from sklearn.preprocessing import StandardScaler
+from utils.dataset_utils import split_data
 
 
-## Fix the accuracy
 def svm_regression(x_train, y_train, x_test, y_test):
     svm = SVR()
-    svm.fit(x_train, y_train)
-    predictions = svm.predict(x_test)
+    scaler = StandardScaler()
+    x_train_scaled = scaler.fit_transform(x_train)
+    x_test_scaled = scaler.transform(x_test)
+    svm.fit(x_train_scaled, y_train)
+    predictions = svm.predict(x_test_scaled)
     r2 = r2_score(y_test, predictions)
     mse = mean_squared_error(y_test, predictions)
     mae = mean_absolute_error(y_test, predictions)
